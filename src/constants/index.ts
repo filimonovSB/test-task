@@ -1,4 +1,4 @@
-import type { IAccount } from '@/stores/accounts-store.ts'
+import type { IAccount } from '@/types'
 
 const ACCOUNTS_DEFAULT: IAccount[] = [
   {
@@ -7,7 +7,7 @@ const ACCOUNTS_DEFAULT: IAccount[] = [
       name: 'local',
       value: 'local'
     },
-    login: 'deemer',
+    login: 'user',
     password: '123456'
   },
   {
@@ -16,7 +16,7 @@ const ACCOUNTS_DEFAULT: IAccount[] = [
       name: 'local',
       value: 'local'
     },
-    login: 'deemer',
+    login: 'user2',
     password: '123456'
   },
   {
@@ -25,7 +25,7 @@ const ACCOUNTS_DEFAULT: IAccount[] = [
       name: 'local',
       value: 'local'
     },
-    login: 'deemer',
+    login: 'user3',
     password: '123456'
   }
 ]

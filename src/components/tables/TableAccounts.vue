@@ -87,13 +87,20 @@ const types = [
     </ElTableColumn>
     <ElTableColumn width="80">
       <template #default="scope">
-        <ElButton
-          type="primary"
-          size="default"
-          class="table-button"
+        <ElPopconfirm
+          title="Вы действительно хотите удалить аккаунт?"
+          @confirm="accountsStore.removeAccount(scope.row.login)"
         >
-          <IconTrash />
-        </ElButton>
+          <template #reference>
+            <ElButton
+              type="primary"
+              size="default"
+              class="table-button"
+            >
+              <IconTrash />
+            </ElButton>
+          </template>
+        </ElPopconfirm>
       </template>
     </ElTableColumn>
   </ElTable>

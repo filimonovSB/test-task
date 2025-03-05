@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import type { IAccount } from '@/stores/accounts-store.ts'
+import { useAccountsStore } from '@/stores/accounts-store.ts'
+import type { IAccount } from '@/types'
+import { deepClone } from '@/utils'
 
 const emmit = defineEmits(['close'])
 
+const accountsStore = useAccountsStore()
+
 const visibleModal = defineModel()
 
-const newAccount = ref<IAccount>({
+const emptyAccount = {
   tags: '',
   type: {
     name: '',
@@ -15,7 +19,9 @@ const newAccount = ref<IAccount>({
   },
   login: '',
   password: ''
-})
+}
+
+const newAccount = ref<IAccount>(deepClone(emptyAccount))
 
 const types = [
   {
@@ -30,6 +36,15 @@ const types = [
 
 const closeDialog = () => {
   emmit('close')
+}
+
+const createAccount = () => {
+  accountsStore.createAccount({ ...newAccount.value })
+  emmit('close')
+}
+
+const resetAccount = () => {
+  newAccount.value = deepClone(emptyAccount)
 }
 </script>
 
@@ -90,6 +105,7 @@ const closeDialog = () => {
           type="primary"
           size="default"
           class="table-button"
+          @click="createAccount"
         >
           Создать
         </ElButton>

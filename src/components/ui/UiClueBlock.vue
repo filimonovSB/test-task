@@ -18,13 +18,13 @@ import IconQuestion from '@/components/icons/IconQuestion.vue'
   gap: 5px;
   width: fit-content;
   min-width: fit-content;
-  padding: 10px;
-  background: var(--app-red-background);
+  padding: 7px;
+  background: var(--app-orange-color);
   border-radius: 10px;
 }
 
 p {
+  font-size: 14px;
   font-weight: 500;
-  color: var(--app-red-color);
 }
 </style>
