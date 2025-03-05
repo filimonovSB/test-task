@@ -1,25 +1,34 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LayoutHeader from '@/components/layouts/LayoutHeader.vue'
+</script>
 
 <template>
   <div class="container">
     <ElContainer direction="vertical">
-      <ELMain>
+      <LayoutHeader />
+      <ElMain class="main">
         <slot />
-      </ELMain>
+      </ElMain>
     </ElContainer>
   </div>
 </template>
 
 <style scoped>
-.container {
+.main {
   min-height: 100dvh;
   max-width: 1400px;
+  width: 100%;
   padding: 20px 0;
   margin: 0 auto;
 }
+.header {
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid var(--el-border-color);
+}
 
-.main {
-  min-height: calc(100dvh - 64px);
-  background-color: var(--app-bg-secondary-color);
+.left-side {
+  display: flex;
+  gap: 10px;
 }
 </style>

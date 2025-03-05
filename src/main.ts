@@ -4,7 +4,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 
-import './assets/index.css'
+import './assets/styles/index.css'
 
 const app = createApp(App)
 

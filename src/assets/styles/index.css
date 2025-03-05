@@ -1,6 +1,9 @@
+@import "normalize.css";
+@import "_fonts.css";
 @import 'element-plus/dist/index.css';
 @import 'element-plus/theme-chalk/dark/css-vars.css';
-@import "variables.css";
+@import "_variables.css";
+@import "_typography.css";
 
 *,
 *::before,
@@ -12,7 +15,6 @@
 }
 
 body {
-    /*font-family: var(--font-family);*/
-    background-color: var(--app-bg-primary-color);
-
+    font-family: var(--font-family), sans-serif;
+    background-color: var(--app-bg-secondary-color);
 }

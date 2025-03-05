@@ -3,8 +3,9 @@
     --app-header-button-size: 40px;
 
     --app-border-radius: 10px;
-}
 
+    --font-family: 'Roboto';
+}
 
 :root {
     --app-bg-primary-color: #FFFFFF;
@@ -16,7 +17,6 @@
     --app-red-background: #FFE2E2;
     --app-orange-color: #F59638;
 }
-
 
 html.dark {
     --app-bg-primary-color: #393F44;
