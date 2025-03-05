@@ -30,7 +30,9 @@ const types = [
       <template #default="scope">
         <ElInput
           v-model="scope.row.tags"
-          placeholder="Введите метку"
+          placeholder="Введите метки"
+          type="textarea"
+          maxlength="50"
         />
       </template>
     </ElTableColumn>
@@ -64,6 +66,7 @@ const types = [
           v-model="scope.row.login"
           type="text"
           placeholder="Введите логин"
+          maxlength="100"
         />
       </template>
     </ElTableColumn>
@@ -77,6 +80,7 @@ const types = [
           v-model="scope.row.password"
           type="password"
           placeholder="Введите пароль"
+          maxlength="100"
           show-password
         />
       </template>
@@ -95,4 +99,10 @@ const types = [
   </ElTable>
 </template>
 
-<style scoped></style>
+<style scoped>
+:deep(.el-textarea__inner) {
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+}
+</style>
