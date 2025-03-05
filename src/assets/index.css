@@ -1,0 +1,18 @@
+@import 'element-plus/dist/index.css';
+@import 'element-plus/theme-chalk/dark/css-vars.css';
+@import "variables.css";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    color: var(--app-text-primary-color);
+}
+
+body {
+    /*font-family: var(--font-family);*/
+    background-color: var(--app-bg-primary-color);
+
+}

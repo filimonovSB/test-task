@@ -1,0 +1,34 @@
+:root {
+    --app-header-height: 64px;
+    --app-header-button-size: 40px;
+
+    --app-border-radius: 10px;
+}
+
+
+:root {
+    --app-bg-primary-color: #FFFFFF;
+    --app-bg-secondary-color: #F5F7F9;
+
+    --app-text-primary-color: #4A545E;
+    --app-green-color: #1AB900;
+    --app-red-color: #F26464;
+    --app-red-background: #FFE2E2;
+    --app-orange-color: #F59638;
+}
+
+
+html.dark {
+    --app-bg-primary-color: #393F44;
+    --app-bg-secondary-color: #272E35;
+
+    --app-text-primary-color: #FFFFFF;
+}
+
+:root,
+html.dark {
+    --el-text-color-primary: var(--app-text-primary-color);
+    --el-menu-text-color: var(--app-text-primary-color);
+    --el-table-bg-color: var(--app-bg-secondary-color);
+    --el-bg-color: var(--app-bg-primary-color);
+}
