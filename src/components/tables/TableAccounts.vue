@@ -2,13 +2,14 @@
 import IconTrash from '@/components/icons/IconTrash.vue'
 import { OPTIONS_TYPE } from '@/constants'
 import { useAccountsStore } from '@/stores/accounts-store.ts'
+import type { ITag } from '@/types'
 
 const accountsStore = useAccountsStore()
-const updateTags = (newValue: string, tags) => {
-  accountsStore.updateTagsByLogin(newValue, tags)
+const updateTags = (newValue: string, login: string) => {
+  accountsStore.updateTagsByLogin(newValue, login)
 }
 
-const updateType = (newValue: string, login) => {
+const updateType = (newValue: string, login: string) => {
   accountsStore.updateTypeByLogin(newValue, login)
 }
 </script>
@@ -26,7 +27,7 @@ const updateType = (newValue: string, login) => {
     >
       <template #default="scope">
         <ElInput
-          :model-value="scope.row.tags.map((i) => i.text).join('; ')"
+          :model-value="scope.row.tags.map((tag: ITag) => tag.text).join('; ')"
           placeholder="Введите метки"
           type="textarea"
           maxlength="50"

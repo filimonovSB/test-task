@@ -1,8 +1,10 @@
 export interface IAccount {
-  tags: {
-    text: string
-  }[]
+  tags: ITag[]
   type: string
   login: string
   password: string | null
+}
+
+export interface ITag {
+  text: string
 }

@@ -27,8 +27,11 @@ export const useAccountsStore = defineStore('accounts', () => {
     const newChar = newValue.split('')[newValue.length - 1]
     const findAccount: IAccount | undefined = findAccountByLogin(login)
     if (!findAccount) return
-    if (newChar !== ';') findAccount.tags.at(-1).text += newChar
-    else findAccount.tags.push({ text: '' })
+    if (newChar !== ';') {
+      const lastElement = findAccount.tags.at(-1)
+      if (!lastElement) return
+      lastElement.text += newChar
+    } else findAccount.tags.push({ text: '' })
   }
 
   const updateTypeByLogin = (newValue: string, login: string) => {
