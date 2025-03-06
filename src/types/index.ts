@@ -1,11 +1,8 @@
-export interface IAccountType {
-  name: string
-  value: string
-}
-
 export interface IAccount {
-  tags: string
-  type: IAccountType
+  tags: {
+    text: string
+  }[]
+  type: string
   login: string
-  password?: string
+  password: string | null
 }

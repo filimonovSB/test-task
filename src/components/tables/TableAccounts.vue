@@ -1,19 +1,16 @@
 <script setup lang="ts">
 import IconTrash from '@/components/icons/IconTrash.vue'
+import { OPTIONS_TYPE } from '@/constants'
 import { useAccountsStore } from '@/stores/accounts-store.ts'
 
 const accountsStore = useAccountsStore()
+const updateTags = (newValue: string, tags) => {
+  accountsStore.updateTagsByLogin(newValue, tags)
+}
 
-const types = [
-  {
-    name: 'Локальная',
-    value: 'Local'
-  },
-  {
-    name: 'LDAP',
-    value: 'LDAP'
-  }
-]
+const updateType = (newValue: string, login) => {
+  accountsStore.updateTypeByLogin(newValue, login)
+}
 </script>
 
 <template>
@@ -29,10 +26,13 @@ const types = [
     >
       <template #default="scope">
         <ElInput
-          v-model="scope.row.tags"
+          :model-value="scope.row.tags.map((i) => i.text).join('; ')"
           placeholder="Введите метки"
           type="textarea"
           maxlength="50"
+          @update:model-value="
+            (newValue: string) => updateTags(newValue, scope.row.login)
+          "
         />
       </template>
     </ElTableColumn>
@@ -43,12 +43,13 @@ const types = [
     >
       <template #default="scope">
         <ElSelect
-          v-model="scope.row.types"
+          v-model="scope.row.type"
           placeholder="Выберите тип записи"
           size="large"
+          @change="(event: string) => updateType(event, scope.row.login)"
         >
           <ElOption
-            v-for="item in types"
+            v-for="item in OPTIONS_TYPE"
             :key="item"
             :label="item.name"
             :value="item.value"
@@ -77,6 +78,7 @@ const types = [
     >
       <template #default="scope">
         <ElInput
+          v-show="scope.row.type === 'Local'"
           v-model="scope.row.password"
           type="password"
           placeholder="Введите пароль"
@@ -88,7 +90,10 @@ const types = [
     <ElTableColumn width="80">
       <template #default="scope">
         <ElPopconfirm
+          width="250"
           title="Вы действительно хотите удалить аккаунт?"
+          confirm-button-text="Да"
+          cancel-button-text="Нет"
           @confirm="accountsStore.removeAccount(scope.row.login)"
         >
           <template #reference>

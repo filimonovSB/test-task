@@ -18,7 +18,7 @@ import LayoutHeader from '@/components/layouts/LayoutHeader.vue'
   min-height: 100dvh;
   max-width: 1400px;
   width: 100%;
-  padding: 20px 0;
+  padding: 20px;
   margin: 0 auto;
 }
 .header {

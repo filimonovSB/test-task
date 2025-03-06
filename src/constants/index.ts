@@ -1,33 +1,33 @@
 import type { IAccount } from '@/types'
 
-const ACCOUNTS_DEFAULT: IAccount[] = [
+export const ACCOUNTS_DEFAULT: IAccount[] = [
   {
-    tags: '1',
-    type: {
-      name: 'local',
-      value: 'local'
-    },
+    tags: [{ text: '1' }, { text: '2' }, { text: '3' }],
+    type: 'Local',
     login: 'user',
     password: '123456'
   },
   {
-    tags: '2',
-    type: {
-      name: 'local',
-      value: 'local'
-    },
+    tags: [{ text: '1' }, { text: '2' }, { text: '3' }],
+    type: 'Local',
     login: 'user2',
     password: '123456'
   },
   {
-    tags: '3',
-    type: {
-      name: 'local',
-      value: 'local'
-    },
+    tags: [{ text: '1' }, { text: '2' }, { text: '3' }],
+    type: 'Local',
     login: 'user3',
     password: '123456'
   }
 ]
 
-export default ACCOUNTS_DEFAULT
+export const OPTIONS_TYPE = [
+  {
+    name: 'Локальная',
+    value: 'Local'
+  },
+  {
+    name: 'LDAP',
+    value: 'LDAP'
+  }
+]
